@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>User Registration Form</title>
+</head>
+
+<body bgcolor="pink">
+	<H1><center><b>USER REGISTRATION FORM</H1></center></b>
+
+<form method="POST" onsubmit="return validateForm()">
+	<center>
+	<label>Name:</label>
+	<input type="text" name="name" id="name">
+	<br><br>
+
+	<label>Email:</label>
+	<input type="email" name="email" id="email">
+	<br><br>
+
+	<label>Password:</label>
+	<input type="password" name="password" id="password">
+	<br><br>
+	
+	<label>Age:</label>
+	<input type="number" name="age" id="age">
+	<br><br>
+
+	<label>Gender:</label>
+	<input type="radio" name="gender" value="Male" > Male
+	<input type="radio" name="gender" value="female" > Female
+	<br><br>
+
+	
+	<label> Course: </label>
+	<select name="course" id="course">
+		<option value="MCA">MCA</option>
+		<option value="MBA">MBA</option>
+		<option value="M.TCH">M.TECH</option>
+		<option value="BCA">BCA</option>
+	</select>
+	<br><br>
+
+
+	<label> Hobbies:</label>
+	<input type="checkbox" name="hobbies" value="reading" > Reading
+	<input type="checkbox" name="hobbies" value="sports" > Sports
+	<input type="checkbox" name="hobbies" value="music" > Music
+	<br><br>
+
+	<label>Address:</label><br>
+	<textarea name="address" rows="4" cols="30" id="address" ></textarea>
+	<br><br>
+
+
+	<label>DOB</label>
+	<input type="date" name="dob" id="dob">
+	<br><br>
+
+	<input type="submit" value="register">
+	<input type="reset" value="Clear">
+	</center>
+</form>
+<script>
+	function validateForm()
+	{
+		var name=document.getElementById("name").value;
+		var email=document.getElementById("email").value;
+		var password=document.getElementById("password").value;
+		var age=document.getElementById("age").value;
+		var course=document.getElementById("course").value;
+		var address=document.getElementById("address").value;
+		var DOB=document.getElementById("dob").value;
+		var Hobbies=document.getElementsByName("hobbies");
+		var gender=document.getElementsByName("gender");
+		var msg="";
+		var selected=false;
+		var genderselected=false;
+		if(name=="")
+		{
+			msg+="enter your name \n";	
+		}
+		if(email=="")
+		{
+			msg+="enter your email \n";
+		}
+		if(password=="")
+		{
+			msg+="enter password \n";
+		}
+		if(age=="")
+		{
+			msg+="enter age \n";
+		}
+		if(course=="")
+		{
+			msg+="select a course \n";
+		}
+		if(address=="")
+		{
+			msg+="enter address \n";
+		}
+		if(DOB=="")
+		{
+			msg+="enter dob \n";
+		}
+		for(var i=0;i<gender.length;i++)
+		{
+			if(gender[i].checked)
+			{
+				genderselected=true;
+			}
+			if(genderselected==false)
+			{
+			msg+="select a gender \n";
+			}
+		}
+		for(var i=0;i<Hobbies.length;i++)
+		{
+			if(Hobbies[i].checked)
+			{
+				selected="true";
+			}
+			if(selected==false)
+			{
+				msg+="select a hobby \n";
+			}
+		}
+		if(msg!="")
+		{
+			alert(msg);
+			return false;
+		}
+		else
+		{
+			alert("successfully registered");
+			return true;
+		}
+
+	}
+</script>
+</body>
+</html>
+
+
+
+
+	
+
+	
+	
